@@ -1,10 +1,20 @@
 // event elements
 const form = document.querySelector('form');
 const taskList = document.querySelector('.collection');
+const deleteTasksBtn = document.querySelector("#delete-tasks");
 
 // events
 form.addEventListener('submit', addTask);
 taskList.addEventListener('click', deleteTask);
+deleteTasksBtn.addEventListener('click', deleteTasks);
+
+function deleteTasks(){
+    //võib kasutada listi kustutamiseks aga liiga pikk. event.target.previousElementSibling.innerHTML = "";
+    //taskList.innerHTML = "";
+    while (taskList.firstChild){
+        taskList.removeChild(taskList.firstChild);
+    }
+}
 
 function deleteTask(event){
     if(event.target.textContent === 'X'){
@@ -34,7 +44,7 @@ function addTask(event){
     link.setAttribute('href', '#');
     // add text content to <a>
     link.appendChild(document.createTextNode('X'));
-    // add <a> to <li>
+    // add <a> to <li> Yeeesh
     li.appendChild(link);
     // add li to ul
     const ul = document.querySelector('.collection');
