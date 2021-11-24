@@ -106,7 +106,7 @@ function addTask(event){
     link.appendChild(document.createTextNode('X'));
     // add <a> to <li>
     li.appendChild(link);
-    // add li to ul
+    // add li to ul.
     const ul = document.querySelector('.collection');
     ul.appendChild(li);
     // save task
